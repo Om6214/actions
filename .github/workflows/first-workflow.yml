@@ -1,0 +1,20 @@
+name: Myfirstworkflow
+
+on:
+    push:
+        branches:
+        - main
+
+jobs:
+    firstJobs:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Welcome message
+          uses: echo "actions/hello-world-javascript-action@v1"
+
+        - name: List files
+          run: ls -la
+        
+        - name: Readme file content
+          run: cat README.md
