@@ -1,20 +1,11 @@
-name: Myfirstworkflow
+name: sanity-check
 
 on:
-    push:
-        branches:
-        - main
+  push:
+  workflow_dispatch:
 
 jobs:
-    firstJobs:
-        runs-on: ubuntu-latest
-
-        steps:
-        - name: Welcome message
-          uses: echo "actions/hello-world-javascript-action@v2"
-
-        - name: List files
-          run: ls -la
-        
-        - name: Readme file content
-          run: cat README.md
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Workflow triggered"
