@@ -2,7 +2,8 @@ name: sanity-check
 
 on:
   push:
-  workflow_dispatch:
+    branches: [ main ]
+
 
 jobs:
   test:
