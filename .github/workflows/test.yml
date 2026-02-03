@@ -11,3 +11,4 @@ jobs:
     steps:
       - run: echo "hello"
       - run: echo "This is a test workflow"
+      - run: echo "Workflow triggered now real checkk"
