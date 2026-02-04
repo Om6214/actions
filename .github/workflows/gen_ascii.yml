@@ -13,11 +13,22 @@ jobs:
                 sudo apt-get update
                 sudo apt-get install -y cowsay
                 cowsay -f dragon "Hello, Github actions!" > ascii_art.txt
+            
+            - name: Upload ASCII Art file
+              uses: actions/upload-artifact@v4
+              with:
+                    name: ascii-art
+                    path: ascii_art.txt
 
     testjob2:
         runs-on: ubuntu-latest
         needs: buildjob1
         steps:
+            - name: Download ASCII Art file
+              uses: actions/download-artifact@v4
+              with:
+                    name: ascii-art
+                    path: .
             - name: Display ASCII Art
               run: |
                 cat ascii_art.txt
