@@ -10,3 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Workflow triggered now real checkk"
+
+      - name: Read file
+        run: cat README.md
