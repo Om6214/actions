@@ -1,0 +1,30 @@
+name: Generate Ascii
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    generate-ascii:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v6
+            
+            - name: Intalling a cowsay package
+              run: sudo apt-get install -y cowsay
+            
+            - name: Generate ASCII art
+              run: cowsay "Hello, World!" > ascii_art.txt
+
+            - name: Test file existence
+              run: |
+                if [ -f ascii_art.txt ]; then
+                  echo "File exists."
+                else
+                  echo "File does not exist."
+                  exit 1
+                fi
+            - name: Display ASCII art
+              run: cat ascii_art.txt
+            

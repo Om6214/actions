@@ -20,4 +20,4 @@ jobs:
           cat README.md
         
       - name: Generate ASCII Artwork
-        run: cowsay -f tux "Sanity Check Passed! Repository is accessible and README.md is read successfully."
+        run: cowsay -f tux "Sanity Check Passed! Repository is accessible and README.md is read successfully." >> ascii_art.txt
