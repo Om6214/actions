@@ -12,7 +12,7 @@ jobs:
               run: |
                 sudo apt-get update
                 sudo apt-get install -y cowsay
-                cowsay -f donky "Hello, Github actions!" > ascii_art.txt
+                cowsay -f dragon "Hello, Github actions!" > ascii_art.txt
 
     testjob2:
         runs-on: ubuntu-latest
