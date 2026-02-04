@@ -11,5 +11,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
-      - name: Read file
-        run: cat README.md
+
+      - name: List and Read files in the repo
+        run: |
+          echo "Listing files in the repository:"
+          ls -lrat
+          echo "Reading README.md content:"
+          cat README.md
+        
+      - name: Generate ASCII Artwork
+        run: cowsay -f tux "Sanity Check Passed! Repository is accessible and README.md is read successfully."
