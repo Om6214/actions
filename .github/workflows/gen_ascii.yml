@@ -5,13 +5,39 @@ on:
         branches: [main]
 
 jobs:
-    generate-ascii:
+    buildjob1:
         runs-on: ubuntu-latest
         steps:
-            - name: Generating ASCII Cow art
+            - name: Generate ASCII Art
               run: |
-                    sudo apt-get install -y cowsay
-                    cowsay -f tux "Hello there Omnath! Welcome to GitHub Actions!" > ascii_art.txt
-                    chmod +x ascii_art.txt
-                    cat ascii_art.txt
+                sudo apt-get update
+                sudo apt-get install -y cowsay
+                cowsay -f donky "Hello, Github actions!" > ascii_art.txt
+
+    testjob2:
+        runs-on: ubuntu-latest
+        needs: buildjob1
+        steps:
+            - name: Display ASCII Art
+              run: |
+                cat ascii_art.txt
+    
+            - name: Verify ASCII Art file
+              run: |
+                if [ -s ascii_art.txt ]; then
+                  echo "ASCII Art file generated successfully."
+                else
+                  echo "ASCII Art file is empty!" >&2
+                  exit 1
+                fi
+    
+    deployjob3:
+        runs-on: ubuntu-latest
+        needs: testjob2
+        steps:
+            - name: Deploy ASCII Art
+              run: |
+                echo "Deploying ASCII Art..."
+    
+
             
