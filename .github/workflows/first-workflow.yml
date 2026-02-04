@@ -6,10 +6,10 @@ on:
 
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  Report-Readme:
+    runs-on: ubuntu-latest  
     steps:
-      - run: echo "Workflow triggered now real checkk"
-
+      - name: Checkout code
+        uses: actions/checkout@v6
       - name: Read file
         run: cat README.md
