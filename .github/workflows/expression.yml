@@ -1,7 +1,5 @@
 name: Expression
-on:
-    push:
-        branches: [main]
+on: push
 jobs:
     building:
         runs-on: ubuntu-latest
