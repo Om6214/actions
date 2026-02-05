@@ -1,0 +1,24 @@
+name: Expression
+on: push
+jobs:
+    building:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Building
+              run: echo "building the project ..."
+            
+    testing:
+        runs-on: ubuntu-latest
+        needs: building
+        steps:
+            - name: Testing
+              run: echo "testing the project ..."
+    
+    deploying:
+        if: github.ref == 'refs/heads/main'
+        runs-on: ubuntu-latest
+        needs: testing
+        steps:
+            - name: Deploying
+              run: echo 'Deploying your project to production ...'
+    
